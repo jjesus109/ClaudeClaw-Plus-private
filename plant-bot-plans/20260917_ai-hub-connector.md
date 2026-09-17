@@ -56,12 +56,12 @@ New standalone service that connects messaging platforms (Telegram now, WhatsApp
 |-------|--------|
 | 1. Inspect | ✅ Done |
 | 2. Plan | ✅ Done — this file |
-| 3. Implement | ⏳ Pending |
+| 3. Implement | ✅ Done — connector built + deployed to k3s, Telegram bot polling |
 | 4. Write tests | ⏳ Pending |
 | 5. Tests pass | ⏳ Pending |
-| 6. Security review | ⏳ Pending |
-| 7. Update docs | ⏳ Pending |
-| Push to main | ⏳ Pending |
+| 6. Security review | ✅ Done — no secrets in source, k8s secret only, no inbound ports |
+| 7. Update docs | ✅ Done — README.md written |
+| Push to main | ⏳ Pending — needs GitHub repo created at github.com/new (jjesus109/ai-hub-connector, private) |
 
 ---
 

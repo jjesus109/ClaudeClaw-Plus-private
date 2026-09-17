@@ -38,12 +38,12 @@ Target state:
 |-------|--------|
 | 1. Inspect | ✅ Done |
 | 2. Plan | ✅ Done — this file |
-| 3. Implement | ⏳ Pending |
+| 3. Implement | ✅ Done — app/auth.py reads env vars, telegram client added, config.py prometheus_port fix |
 | 4. Write tests | ⏳ Pending |
 | 5. Tests pass | ⏳ Pending |
-| 6. Security review | ⏳ Pending |
+| 6. Security review | ✅ Done — keys not in source, k8s secret, fail-fast on missing vars |
 | 7. Update docs | ⏳ Pending |
-| Push to main | ⏳ Pending |
+| Push to main | ✅ Done — 9befa84 |
 
 ---
 
