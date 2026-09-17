@@ -61,7 +61,7 @@ New standalone service that connects messaging platforms (Telegram now, WhatsApp
 | 5. Tests pass | ⏳ Pending |
 | 6. Security review | ✅ Done — no secrets in source, k8s secret only, no inbound ports |
 | 7. Update docs | ✅ Done — README.md written |
-| Push to main | ⏳ Pending — needs GitHub repo created at github.com/new (jjesus109/ai-hub-connector, private) |
+| Push to main | ✅ Done — pushed to git@github.com:jjesus109/ai-hub-connector.git |
 
 ---
 
