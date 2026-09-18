@@ -3,6 +3,7 @@ node_modules
 .codemachine
 AGENTS.md
 agents/*/session.json
+agents/*/session.json.stale-*
 # Synthesized per-run `--mcp-config` for dispatched agent jobs. Holds a live
 # bearer token at rest (0600) and is deleted when the job ends — but a job
 # running during a `git add -A` must never stage one.
