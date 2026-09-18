@@ -332,6 +332,8 @@ export interface DiscordBusRouting {
   channels: Record<string, string>;
   threads?: Record<string, string>;
   dmAgentId?: string;
+  /** Fallback agent for any channel/thread not explicitly listed in `channels` or `threads`. */
+  defaultAgentId?: string;
   /**
    * `agent_id → channel_id`. When a non-channel-driven origin
    * ("cron" / "heartbeat" / "cli" / "rest" / no origin) fires for an agent
@@ -1460,9 +1462,12 @@ function parseDiscordBusRouting(raw: unknown): DiscordBusRouting | null {
   ) {
     return null;
   }
+  const defaultAgentId = (raw as Record<string, unknown>).defaultAgentId;
+  const hasDefault = typeof defaultAgentId === "string" && defaultAgentId.length > 0;
   const out: DiscordBusRouting = { channels };
   if (Object.keys(threads).length > 0) out.threads = threads;
   if (hasDm) out.dmAgentId = (dmAgentId as string).trim();
+  if (hasDefault) out.defaultAgentId = (defaultAgentId as string).trim();
   if (hasPrimary) out.primaryChannelByAgent = primaryChannelByAgent;
   return out;
 }

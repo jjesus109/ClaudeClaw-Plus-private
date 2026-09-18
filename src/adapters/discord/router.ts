@@ -23,6 +23,8 @@ export interface RoutingConfig {
   channels: Record<string, string>;
   threads?: Record<string, string>;
   dmAgentId?: string;
+  /** Fallback agent for any channel/thread not explicitly listed. */
+  defaultAgentId?: string;
   /**
    * Mirrors `DiscordBusRouting.primaryChannelByAgent`. Listed here so
    * `uniqueAgentIds` can include agents that appear only in this map.
@@ -71,7 +73,8 @@ export function resolveAgentId(routing: RoutingConfig, ctx: RouteContext): strin
     if (parentHit) return parentHit;
   }
 
-  return null;
+  // Fallback: defaultAgentId catches any unrouted channel/thread.
+  return routing.defaultAgentId ?? null;
 }
 
 /**
@@ -86,6 +89,7 @@ export function uniqueAgentIds(routing: RoutingConfig): string[] {
     for (const a of Object.values(routing.threads)) set.add(a);
   }
   if (routing.dmAgentId) set.add(routing.dmAgentId);
+  if (routing.defaultAgentId) set.add(routing.defaultAgentId);
   // Include agents that appear only in `primaryChannelByAgent`. The parser
   // accepts that config shape, so the subscription set must too — otherwise
   // outbound events for those agents would never reach the adapter.

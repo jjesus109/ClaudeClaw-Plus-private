@@ -41,6 +41,8 @@ export interface DiscordAdapterOptions {
     channels: Record<string, string>;
     threads?: Record<string, string>;
     dmAgentId?: string;
+    /** Fallback agent for any channel/thread not explicitly listed. */
+    defaultAgentId?: string;
     /**
      * `agent_id → channel_id`. When set for an agent, non-channel-driven
      * origins (cron / heartbeat / cli / rest / no origin) deliver ONLY to
