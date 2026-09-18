@@ -19,25 +19,26 @@ import { homedir, tmpdir } from "os";
 import { fileURLToPath } from "url";
 
 // ── Plugin repos to install (one plugin per repo) ───────────────────
-const PLUGINS = [
-  "https://github.com/SawyerHood/dev-browser",
-  "https://github.com/thedotmack/claude-mem",
-  "https://github.com/obra/superpowers-marketplace",
-  // Add more repos here:
-  // "https://github.com/user/repo",
+const PLUGINS: string[] = [
+  // Disabled: /tmp (tmpfs) and ~/.claude/plugins (SD card) are different
+  // filesystems on this host, so the clone-then-rename always fails with
+  // EXDEV, and concurrent clones periodically exhaust the small tmpfs
+  // (ENOSPC). Every boot burned CPU/disk on guaranteed-fail clones right
+  // when the daemon was also trying to confirm the agent's first turns.
+  // "https://github.com/SawyerHood/dev-browser",
+  // "https://github.com/thedotmack/claude-mem",
+  // "https://github.com/obra/superpowers-marketplace",
 ];
 
 // ── Cherry-pick from anthropics/claude-plugins-official ─────────────
-const OFFICIAL_PLUGINS = [
-  "ralph-loop",
-  "hookify",
-  "code-review",
-  "pr-review-toolkit",
-  "commit-commands",
-  "plugin-dev",
-  // Add more plugin names here (must match names in marketplace.json):
-  // "typescript-lsp",
-  // "playwright",
+const OFFICIAL_PLUGINS: string[] = [
+  // Disabled alongside PLUGINS above — same EXDEV/ENOSPC failure mode.
+  // "ralph-loop",
+  // "hookify",
+  // "code-review",
+  // "pr-review-toolkit",
+  // "commit-commands",
+  // "plugin-dev",
 ];
 
 // ── Config ──────────────────────────────────────────────────────────
