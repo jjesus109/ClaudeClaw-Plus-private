@@ -97,9 +97,9 @@ Well within free tiers.
 |-------|--------|
 | 1. Inspect | ✅ Done |
 | 2. Plan | ✅ Done — this file |
-| 3. Implement | 🔄 In Progress — local+alerts done, blocked on cloud credentials |
-| 4. Write tests | ⏳ Pending |
-| 5. Tests pass | ⏳ Pending |
-| 6. Security review | ⏳ Pending |
-| 7. Update docs | ⏳ Pending |
+| 3. Implement | ✅ Done — R2 configured, cloud upload working |
+| 4. Write tests | ✅ Done — infra/backup/test_backup.sh (10 tests) |
+| 5. Tests pass | ✅ Done — 10/10 |
+| 6. Security review | ✅ Done — curl --data-urlencode fix applied |
+| 7. Update docs | ✅ Done — script added to repo at infra/backup/ |
 | Push to main | ⏳ Pending |
